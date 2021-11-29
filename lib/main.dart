@@ -1,4 +1,4 @@
-import 'package:ejm/views/home.dart';
+import 'package:ejm/views/home/home.dart';
 import 'package:flutter/material.dart';
 
 void main() {
