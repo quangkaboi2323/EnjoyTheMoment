@@ -1,5 +1,5 @@
 import 'package:ejm/share/share.dart';
-import 'package:ejm/views/detail_tour/detail.dart';
+import 'package:ejm/views/detail_tour/detail.tour.dart';
 import 'package:flutter/material.dart';
 
 class PopularTour extends StatefulWidget {
@@ -21,12 +21,17 @@ class _PopularTourState extends State<PopularTour> {
               topLeft: Radius.circular(20), bottomLeft: Radius.circular(20))),
       child: MaterialButton(
         padding: EdgeInsets.all(0),
-        onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => DetailTour(),)),
+        onPressed: () => Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => DetailTour(),
+            )),
         child: Row(
           children: [
             ClipRRect(
               borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(20), bottomLeft: Radius.circular(20)),
+                  topLeft: Radius.circular(20),
+                  bottomLeft: Radius.circular(20)),
               child: Image.network(
                 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRd8nqr6w_qWXwZz5tQlz4Wf2qyYdBYRLHXYQ&usqp=CAU',
                 height: 100,
@@ -69,7 +74,7 @@ class _PopularTourState extends State<PopularTour> {
             Container(
               height: 100,
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(8), color: Colors.green),
+                  borderRadius: BorderRadius.circular(8), color: GreenColor),
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Column(
@@ -80,12 +85,12 @@ class _PopularTourState extends State<PopularTour> {
                       style: TextStyle(
                           fontWeight: FontWeight.w700,
                           color: Colors.white,
-                          fontSize: 23),
+                          fontSize: 17),
                     ),
                     Icon(
                       Icons.star,
                       color: Colors.white,
-                      size: 23,
+                      size: 17,
                     )
                   ],
                 ),

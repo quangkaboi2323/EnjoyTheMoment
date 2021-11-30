@@ -1,4 +1,5 @@
 import 'package:ejm/share/share.dart';
+import 'package:ejm/views/detail_user/detail.user.dart';
 import 'package:ejm/views/home/places.dart';
 import 'package:ejm/views/home/popular.dart';
 import 'package:flutter/material.dart';
@@ -21,7 +22,11 @@ class _MyHomePageState extends State<MyHomePage> {
           child: IconButton(
             icon: Icon(Icons.menu),
             color: GreenColor,
-            onPressed: () => {},
+            onPressed: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => DetailUser(),
+                )),
           ),
         ),
         backgroundColor: Colors.white,
@@ -124,14 +129,13 @@ class _MyHomePageState extends State<MyHomePage> {
               color: BlackText.withOpacity(0.1),
               spreadRadius: 0,
               blurRadius: 5,
-              offset:
-              Offset(0, -4), // changes position of shadow
+              offset: Offset(0, -4), // changes position of shadow
             ),
           ],
         ),
         child: Padding(
           padding:
-          const EdgeInsets.only(top: 10, bottom: 10, left: 20, right: 20),
+              const EdgeInsets.only(top: 10, bottom: 10, left: 20, right: 20),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
