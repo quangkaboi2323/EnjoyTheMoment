@@ -1,3 +1,5 @@
+import 'package:ejm/share/bottom_share.dart';
+import 'package:ejm/share/bottom_status.dart';
 import 'package:ejm/share/share.dart';
 import 'package:flutter/material.dart';
 
@@ -70,6 +72,7 @@ class _ToursState extends State<Tours> {
           },
         ),
       ),
+      bottomNavigationBar: Bottom(BottomState.none),
     );
   }
 }

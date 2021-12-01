@@ -1,3 +1,5 @@
+import 'package:ejm/share/bottom_share.dart';
+import 'package:ejm/share/bottom_status.dart';
 import 'package:ejm/share/share.dart';
 import 'package:ejm/views/detail_user/detail.user.dart';
 import 'package:ejm/views/home/places.dart';
@@ -122,52 +124,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ),
       ),
-      bottomNavigationBar: Container(
-        decoration: BoxDecoration(
-          color: Colors.white,
-          boxShadow: [
-            BoxShadow(
-              color: BlackText.withOpacity(0.1),
-              spreadRadius: 0,
-              blurRadius: 5,
-              offset: Offset(0, -4), // changes position of shadow
-            ),
-          ],
-        ),
-        child: Padding(
-          padding:
-              const EdgeInsets.only(top: 10, bottom: 10, left: 20, right: 20),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              IconButton(
-                icon: Icon(
-                  Icons.home,
-                  size: 35,
-                  color: GreenColor,
-                ),
-                onPressed: () {},
-              ),
-              IconButton(
-                icon: Icon(
-                  Icons.favorite,
-                  size: 35,
-                  color: Colors.black45,
-                ),
-                onPressed: () {},
-              ),
-              IconButton(
-                icon: Icon(
-                  Icons.search,
-                  size: 35,
-                  color: Colors.black45,
-                ),
-                onPressed: () {},
-              ),
-            ],
-          ),
-        ),
-      ),
+      bottomNavigationBar: Bottom(BottomState.home),
     );
   }
 }

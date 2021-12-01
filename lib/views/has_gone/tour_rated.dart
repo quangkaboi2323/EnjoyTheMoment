@@ -40,7 +40,7 @@ class TourRated extends StatelessWidget {
           Container(
             height: 116 * 4,
             decoration: BoxDecoration(
-              color: GreenColor,
+              color: Colors.white,
             ),
             child: ListView.builder(
               itemCount: 4,

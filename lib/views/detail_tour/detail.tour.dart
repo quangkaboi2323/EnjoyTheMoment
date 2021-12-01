@@ -1,4 +1,7 @@
+import 'package:ejm/share/bottom_share.dart';
+import 'package:ejm/share/bottom_status.dart';
 import 'package:ejm/share/share.dart';
+import 'package:ejm/views/checkout/checkout.dart';
 import 'package:flutter/material.dart';
 
 class DetailTour extends StatefulWidget {
@@ -288,14 +291,17 @@ class _DetailTourState extends State<DetailTour> {
               children: [
                 Spacer(),
                 TextButton(
-                    onPressed: () => {},
+                    onPressed: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Checkout(),
+                        )),
                     child: Container(
                       decoration: BoxDecoration(
-                        color: BlueColor,
-                        borderRadius: BorderRadius.all(Radius.circular(10))
-                      ),
+                          color: BlueColor,
+                          borderRadius: BorderRadius.all(Radius.circular(10))),
                       child: Padding(
-                        padding: const EdgeInsets.fromLTRB(40, 10, 40 , 10),
+                        padding: const EdgeInsets.fromLTRB(40, 10, 40, 10),
                         child: Text(
                           'Book',
                           style: TextStyle(fontSize: 30, color: Colors.white),
@@ -308,53 +314,7 @@ class _DetailTourState extends State<DetailTour> {
           ],
         ),
       ),
-      bottomNavigationBar: Container(
-        decoration: BoxDecoration(
-          color: Colors.white,
-          boxShadow: [
-            BoxShadow(
-              color: BlackText.withOpacity(0.1),
-              spreadRadius: 0,
-              blurRadius: 5,
-              offset:
-              Offset(0, -4), // changes position of shadow
-            ),
-          ],
-        ),
-        child: Padding(
-          padding:
-          const EdgeInsets.only(top: 10, bottom: 10, left: 20, right: 20),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              IconButton(
-                icon: Icon(
-                  Icons.home,
-                  size: 35,
-                  color: Colors.black45,
-                ),
-                onPressed: () {},
-              ),
-              IconButton(
-                icon: Icon(
-                  Icons.favorite,
-                  size: 35,
-                  color: Colors.black45,
-                ),
-                onPressed: () {},
-              ),
-              IconButton(
-                icon: Icon(
-                  Icons.search,
-                  size: 35,
-                  color: Colors.black45,
-                ),
-                onPressed: () {},
-              ),
-            ],
-          ),
-        ),
-      ),
+      bottomNavigationBar: Bottom(BottomState.none),
     );
   }
 }
