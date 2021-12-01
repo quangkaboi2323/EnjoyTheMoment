@@ -2,6 +2,7 @@ import 'package:ejm/share/share.dart';
 import 'package:ejm/views/detail_user/detail.user.dart';
 import 'package:ejm/views/home/places.dart';
 import 'package:ejm/views/home/popular.dart';
+import 'package:ejm/views/tour/tous.dart';
 import 'package:flutter/material.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -73,16 +74,16 @@ class _MyHomePageState extends State<MyHomePage> {
                           fontSize: 20,
                           fontWeight: FontWeight.w600),
                     ),
-                    TextButton(
-                      child: Text(
-                        'View all',
-                        style: TextStyle(
-                            color: GreenColor,
-                            fontSize: 18,
-                            fontWeight: FontWeight.w700),
-                      ),
-                      onPressed: () {},
-                    ),
+                    // TextButton(
+                    //   child: Text(
+                    //     'View all',
+                    //     style: TextStyle(
+                    //         color: GreenColor,
+                    //         fontSize: 18,
+                    //         fontWeight: FontWeight.w700),
+                    //   ),
+                    //   onPressed: () {},
+                    // ),
                   ],
                 ),
               ),
@@ -107,7 +108,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             fontSize: 18,
                             fontWeight: FontWeight.w700),
                       ),
-                      onPressed: () {},
+                      onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => Tours(),)),
                     ),
                   ],
                 ),
