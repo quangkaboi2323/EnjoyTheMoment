@@ -1,8 +1,11 @@
 import 'package:ejm/share/bottom_status.dart';
 import 'package:ejm/share/share.dart';
+import 'package:ejm/views/favorite/favorite.dart';
+import 'package:ejm/views/home/home.dart';
+import 'package:ejm/views/search/search.dart';
 import 'package:flutter/material.dart';
 
-Bottom(BottomState value) {
+Bottom(BottomState value, context) {
   return Container(
     decoration: BoxDecoration(
       color: Colors.white,
@@ -26,15 +29,24 @@ Bottom(BottomState value) {
               size: 35,
               color: value == BottomState.home ? GreenColor : Colors.black54,
             ),
-            onPressed: () {},
+            onPressed: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => MyHomePage(),
+                )),
           ),
           IconButton(
             icon: Icon(
               Icons.favorite,
               size: 35,
-              color: value == BottomState.favorite ? GreenColor : Colors.black54,
+              color:
+                  value == BottomState.favorite ? GreenColor : Colors.black54,
             ),
-            onPressed: () {},
+            onPressed: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => Favorite(),
+                )),
           ),
           IconButton(
             icon: Icon(
@@ -42,7 +54,11 @@ Bottom(BottomState value) {
               size: 35,
               color: value == BottomState.search ? GreenColor : Colors.black54,
             ),
-            onPressed: () {},
+            onPressed: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => Search(),
+                )),
           ),
         ],
       ),

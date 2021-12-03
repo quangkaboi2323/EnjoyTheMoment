@@ -18,13 +18,18 @@ class _CheckoutState extends State<Checkout> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: GreenColor,
+
+      ),
       body: SingleChildScrollView(
           child: Column(
         children: [
           Stack(
             children: [
               Container(
-                height: MediaQuery.of(context).size.height * 0.22,
+                height: MediaQuery.of(context).size.height * 0.12,
                 width: MediaQuery.of(context).size.width,
                 decoration: BoxDecoration(
                   color: GreenColor,
@@ -33,12 +38,12 @@ class _CheckoutState extends State<Checkout> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Spacer(),
-                    IconButton(
-                        onPressed: () => Navigator.pop(context),
-                        icon: Icon(
-                          Icons.arrow_back,
-                          color: Colors.white,
-                        )),
+                    // IconButton(
+                    //     onPressed: () => Navigator.pop(context),
+                    //     icon: Icon(
+                    //       Icons.arrow_back,
+                    //       color: Colors.white,
+                    //     )),
                     Row(
                       children: [
                         Spacer(),
@@ -302,7 +307,7 @@ class _CheckoutState extends State<Checkout> {
                 Card(
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.all(Radius.circular(20))),
-                  color: GreenColor.withOpacity(0.8),
+                  color: GreenColor.withOpacity(0.6),
                   shadowColor: GreenColor,
                   child: Padding(
                     padding: const EdgeInsets.all(20.0),
@@ -323,6 +328,16 @@ class _CheckoutState extends State<Checkout> {
                           TextField(
                             decoration: InputDecoration(
                               hintText: 'Personal ID',
+                              hintStyle: TextStyle(color: Colors.white),
+                            ),
+                            style: TextStyle(color: Colors.white, fontSize: 20),
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          TextField(
+                            decoration: InputDecoration(
+                              hintText: 'Email',
                               hintStyle: TextStyle(color: Colors.white),
                             ),
                             style: TextStyle(color: Colors.white, fontSize: 20),

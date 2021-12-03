@@ -124,7 +124,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ),
       ),
-      bottomNavigationBar: Bottom(BottomState.home),
+      bottomNavigationBar: Bottom(BottomState.home, context),
     );
   }
 }

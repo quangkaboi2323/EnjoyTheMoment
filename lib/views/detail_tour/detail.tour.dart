@@ -2,6 +2,7 @@ import 'package:ejm/share/bottom_share.dart';
 import 'package:ejm/share/bottom_status.dart';
 import 'package:ejm/share/share.dart';
 import 'package:ejm/views/checkout/checkout.dart';
+import 'package:ejm/views/home/places.dart';
 import 'package:flutter/material.dart';
 
 class DetailTour extends StatefulWidget {
@@ -12,6 +13,8 @@ class DetailTour extends StatefulWidget {
 }
 
 class _DetailTourState extends State<DetailTour> {
+  bool _favorite = true;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,12 +49,17 @@ class _DetailTourState extends State<DetailTour> {
                               )),
                           Spacer(),
                           IconButton(
-                              onPressed: () => Navigator.pop(context),
+                              onPressed: () {
+                                setState(() {
+                                  _favorite = !_favorite;
+                                });
+                              } ,
                               icon: Icon(
                                 Icons.favorite,
-                                color: Colors.white,
-                                size: 30,
+                                color: _favorite ? Colors.red : Colors.white,
+                                size: 35,
                               )),
+                          SizedBox(width: 10,)
                         ],
                       ),
                       Spacer(),
@@ -286,6 +294,10 @@ class _DetailTourState extends State<DetailTour> {
                 style: TextStyle(fontSize: 18),
               ),
             ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(20, 20, 20, 10),
+              child: Places(),
+            ),
             //button to check out
             Row(
               children: [
@@ -308,13 +320,14 @@ class _DetailTourState extends State<DetailTour> {
                         ),
                       ),
                     )),
+
                 Spacer(),
               ],
-            )
+            ),
           ],
         ),
       ),
-      bottomNavigationBar: Bottom(BottomState.none),
+      bottomNavigationBar: Bottom(BottomState.none, context),
     );
   }
 }

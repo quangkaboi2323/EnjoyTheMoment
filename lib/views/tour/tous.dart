@@ -72,7 +72,7 @@ class _ToursState extends State<Tours> {
           },
         ),
       ),
-      bottomNavigationBar: Bottom(BottomState.none),
+      bottomNavigationBar: Bottom(BottomState.none, context),
     );
   }
 }

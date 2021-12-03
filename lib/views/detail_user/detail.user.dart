@@ -95,7 +95,7 @@ class DetailUser extends StatelessWidget {
               child: TextButton(onPressed: () => {}, child: Container(
                 padding: EdgeInsets.fromLTRB(100, 10, 100, 10),
                 decoration: BoxDecoration(
-                    color: GreenColorAccent,
+                    color: GreenColor,
                     borderRadius: BorderRadius.all(Radius.circular(50))
                 ),
                 child: Text('Change password', style: TextStyle(fontSize: 20, color: Colors.white),),
