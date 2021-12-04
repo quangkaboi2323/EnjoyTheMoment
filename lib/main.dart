@@ -1,4 +1,5 @@
 import 'package:ejm/views/home/home.dart';
+import 'package:ejm/views/user_behavior/login.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
         backgroundColor: Colors.white,
         visualDensity: VisualDensity.adaptivePlatformDensity
       ),
-      home: MyHomePage(),
+      home: Login(),
     );
   }
 }

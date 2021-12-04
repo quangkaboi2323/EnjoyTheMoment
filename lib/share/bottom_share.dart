@@ -47,6 +47,7 @@ Bottom(BottomState value, context) {
                 MaterialPageRoute(
                   builder: (context) => Favorite(),
                 )),
+
           ),
           IconButton(
             icon: Icon(

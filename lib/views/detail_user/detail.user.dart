@@ -1,5 +1,7 @@
 import 'package:ejm/share/share.dart';
 import 'package:ejm/views/has_gone/tour_has_gone.dart';
+import 'package:ejm/views/user_behavior/change_pass.dart';
+import 'package:ejm/views/user_behavior/login.dart';
 import 'package:flutter/material.dart';
 
 class DetailUser extends StatelessWidget {
@@ -82,36 +84,62 @@ class DetailUser extends StatelessWidget {
             Spacer(),
             //button list tour has gone
             Container(
-              child: TextButton(onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => HasGone(),)), child: Container(
-                padding: EdgeInsets.fromLTRB(100, 10, 100, 10),
-                decoration: BoxDecoration(
-                  color: BlueColor,
-                  borderRadius: BorderRadius.all(Radius.circular(50))
-                ),
-                child: Text('Tour has gone', style: TextStyle(fontSize: 20, color: Colors.white),),
-              )),
+              child: TextButton(
+                  onPressed: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => HasGone(),
+                      )),
+                  child: Container(
+                    padding: EdgeInsets.fromLTRB(100, 10, 100, 10),
+                    decoration: BoxDecoration(
+                        color: BlueColor,
+                        borderRadius: BorderRadius.all(Radius.circular(50))),
+                    child: Text(
+                      'Tour has gone',
+                      style: TextStyle(fontSize: 20, color: Colors.white),
+                    ),
+                  )),
             ),
             Container(
-              child: TextButton(onPressed: () => {}, child: Container(
-                padding: EdgeInsets.fromLTRB(100, 10, 100, 10),
-                decoration: BoxDecoration(
-                    color: GreenColor,
-                    borderRadius: BorderRadius.all(Radius.circular(50))
-                ),
-                child: Text('Change password', style: TextStyle(fontSize: 20, color: Colors.white),),
-              )),
+              child: TextButton(
+                  onPressed: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ChangePass(),
+                      )),
+                  child: Container(
+                    padding: EdgeInsets.fromLTRB(100, 10, 100, 10),
+                    decoration: BoxDecoration(
+                        color: GreenColor,
+                        borderRadius: BorderRadius.all(Radius.circular(50))),
+                    child: Text(
+                      'Đổi mật khẩu',
+                      style: TextStyle(fontSize: 20, color: Colors.white),
+                    ),
+                  )),
             ),
             Container(
-              child: TextButton(onPressed: () => {}, child: Container(
-                padding: EdgeInsets.fromLTRB(100, 10, 100, 10),
-                decoration: BoxDecoration(
-                    color: Colors.redAccent,
-                    borderRadius: BorderRadius.all(Radius.circular(50))
-                ),
-                child: Text('Logout', style: TextStyle(fontSize: 20, color: Colors.white),),
-              )),
+              child: TextButton(
+                  onPressed: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => Login(),
+                      )),
+                  child: Container(
+                    padding: EdgeInsets.fromLTRB(100, 10, 100, 10),
+                    decoration: BoxDecoration(
+                        color: Colors.redAccent,
+                        borderRadius: BorderRadius.all(Radius.circular(50))),
+                    child: Text(
+                      'Đăng xuất',
+                      style: TextStyle(fontSize: 20, color: Colors.white),
+                    ),
+                  )),
             ),
-            SizedBox(height: 100,)
+            SizedBox(
+              height: 100,
+            )
           ],
         ),
       ),

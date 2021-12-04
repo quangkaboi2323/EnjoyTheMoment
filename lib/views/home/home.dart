@@ -23,7 +23,7 @@ class _MyHomePageState extends State<MyHomePage> {
         leading: Container(
           padding: EdgeInsets.all(4),
           child: IconButton(
-            icon: Icon(Icons.menu),
+            icon: Icon(Icons.person),
             color: GreenColor,
             onPressed: () => Navigator.push(
                 context,
