@@ -12,7 +12,7 @@ class Tours extends StatefulWidget {
 
 class _ToursState extends State<Tours> {
   Icon customIcon = const Icon(Icons.search);
-  Widget customSearchBar = const Text('List tours');
+  Widget customSearchBar = const Text('Danh sách tour');
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,7 +38,7 @@ class _ToursState extends State<Tours> {
                     ),
                     title: TextField(
                       decoration: InputDecoration(
-                        hintText: 'type tour\'s name...',
+                        hintText: 'Nhập vào tên tour...',
                         hintStyle: TextStyle(
                           color: Colors.white,
                           fontSize: 18,
@@ -53,7 +53,7 @@ class _ToursState extends State<Tours> {
                   );
                 } else {
                   customIcon = const Icon(Icons.search);
-                  customSearchBar = const Text('List tours');
+                  customSearchBar = const Text('Danh sách tour');
                 }
               });
             },
@@ -130,7 +130,7 @@ _Element(context) {
                   ),
                   Spacer(),
                   Text(
-                    '\$ 100.00',
+                    '100.00 VNĐ',
                     style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.w700,

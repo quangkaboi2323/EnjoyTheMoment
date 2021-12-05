@@ -48,7 +48,7 @@ class _CheckoutState extends State<Checkout> {
                       children: [
                         Spacer(),
                         Text(
-                          'CHECKOUT',
+                          'HÓA ĐƠN',
                           style: TextStyle(
                               fontSize: 40,
                               fontStyle: FontStyle.italic,
@@ -95,17 +95,17 @@ class _CheckoutState extends State<Checkout> {
                 Row(
                   children: [
                     Text(
-                      'Start day: 15/11/2021',
+                      'Ngày bắt đầu: 15/11/2021',
                       style: TextStyle(
-                          fontSize: 18,
+                          fontSize: 15,
                           fontWeight: FontWeight.w500,
                           color: Colors.black54),
                     ),
                     Spacer(),
                     Text(
-                      'End day: 15/11/2021',
+                      'Ngày kết thúc: 15/11/2021',
                       style: TextStyle(
-                          fontSize: 18,
+                          fontSize: 15,
                           fontWeight: FontWeight.w500,
                           color: Colors.black54),
                     ),
@@ -119,7 +119,7 @@ class _CheckoutState extends State<Checkout> {
                   children: [
                     Spacer(),
                     Text(
-                      'Book for',
+                      'Đặt cho',
                       style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.w900,
@@ -181,7 +181,7 @@ class _CheckoutState extends State<Checkout> {
                         )),
                     Spacer(),
                     Text(
-                      'person(s)',
+                      'người',
                       style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.w900,
@@ -205,7 +205,7 @@ class _CheckoutState extends State<Checkout> {
                     Padding(
                       padding: const EdgeInsets.only(bottom: 20, top: 20),
                       child: Text(
-                        'Tour cost',
+                        'Giá tour',
                         style: TextStyle(
                             fontSize: 30,
                             fontWeight: FontWeight.bold,
@@ -227,11 +227,11 @@ class _CheckoutState extends State<Checkout> {
                         Row(
                           children: [
                             Text(
-                              'Ticket price: ',
+                              'Giá vé: ',
                               style: TextStyle(fontSize: 18),
                             ),
                             Text(
-                              '\$ 100.00',
+                              '100.00 VNĐ',
                               style: TextStyle(
                                   fontSize: 18, fontWeight: FontWeight.w600),
                             ),
@@ -242,7 +242,7 @@ class _CheckoutState extends State<Checkout> {
                                   fontSize: 18, fontWeight: FontWeight.w900),
                             ),
                             Text(
-                              ' person(s)',
+                              ' người',
                               style: TextStyle(
                                   fontSize: 13, fontWeight: FontWeight.w500),
                             )
@@ -264,11 +264,11 @@ class _CheckoutState extends State<Checkout> {
                           children: [
                             Spacer(),
                             Text(
-                              'Total cost: ',
+                              'Tổng chi phí: ',
                               style: TextStyle(fontSize: 20, color: GreenColor),
                             ),
                             Text(
-                              '\$ ' + _total.toString(),
+                              _total.toString()  + ' VNĐ ',
                               style: TextStyle(
                                   fontSize: 22, fontWeight: FontWeight.w800),
                             ),
@@ -294,7 +294,7 @@ class _CheckoutState extends State<Checkout> {
                               topLeft: Radius.circular(20),
                               topRight: Radius.circular(20))),
                       child: Text(
-                        'Information',
+                        'Thông tin',
                         style: TextStyle(
                             fontSize: 25,
                             fontWeight: FontWeight.w600,
@@ -317,7 +317,7 @@ class _CheckoutState extends State<Checkout> {
                         children: [
                           TextField(
                             decoration: InputDecoration(
-                              hintText: 'Full name',
+                              hintText: 'Họ và tên',
                               hintStyle: TextStyle(color: Colors.white),
                             ),
                             style: TextStyle(color: Colors.white, fontSize: 20),
@@ -327,7 +327,7 @@ class _CheckoutState extends State<Checkout> {
                           ),
                           TextField(
                             decoration: InputDecoration(
-                              hintText: 'Personal ID',
+                              hintText: 'Số CMND',
                               hintStyle: TextStyle(color: Colors.white),
                             ),
                             style: TextStyle(color: Colors.white, fontSize: 20),
@@ -347,7 +347,7 @@ class _CheckoutState extends State<Checkout> {
                           ),
                           TextField(
                             decoration: InputDecoration(
-                              hintText: 'Phone number',
+                              hintText: 'Số điện thoại',
                               hintStyle: TextStyle(color: Colors.white),
                             ),
                             style: TextStyle(color: Colors.white, fontSize: 20),
@@ -368,7 +368,7 @@ class _CheckoutState extends State<Checkout> {
                             color: Colors.lightBlue,
                             borderRadius:
                                 BorderRadius.all(Radius.circular(20))),
-                        child: Text('Book now', style: TextStyle(fontSize: 20, color: Colors.white),)))
+                        child: Text('Đặt ngay', style: TextStyle(fontSize: 20, color: Colors.white),)))
               ],
             ),
           )

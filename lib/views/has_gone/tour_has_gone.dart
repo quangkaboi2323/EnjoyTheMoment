@@ -30,7 +30,7 @@ class _HasGoneState extends State<HasGone> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(
-                'Tours have gone',
+                'Tour đã đi',
                 style: TextStyle(color: GreenColor),
               ),
             ],

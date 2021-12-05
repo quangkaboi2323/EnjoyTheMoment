@@ -122,7 +122,7 @@ class _TourState extends State<Tour> {
               TextButton(
                   onPressed: () => {},
                   child: Text(
-                    'Send',
+                    'Gửi',
                     style: TextStyle(fontSize: 20, color: GreenColor),
                   )),
               Spacer(),

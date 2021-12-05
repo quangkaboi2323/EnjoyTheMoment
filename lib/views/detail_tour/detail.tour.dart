@@ -272,7 +272,7 @@ class _DetailTourState extends State<DetailTour> {
                     color: GreenColor,
                   ),
                   child: Text(
-                    'Discription',
+                    'Mô tả',
                     style: TextStyle(
                         fontSize: 30,
                         fontWeight: FontWeight.bold,
@@ -315,7 +315,7 @@ class _DetailTourState extends State<DetailTour> {
                       child: Padding(
                         padding: const EdgeInsets.fromLTRB(40, 10, 40, 10),
                         child: Text(
-                          'Book',
+                          'Đặt',
                           style: TextStyle(fontSize: 30, color: Colors.white),
                         ),
                       ),

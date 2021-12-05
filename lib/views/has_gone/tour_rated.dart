@@ -26,7 +26,7 @@ class TourRated extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(10.0),
             child: Text(
-              'List tours have gone',
+              'Danh sách tour đã đi',
               style: TextStyle(
                   fontSize: 20,
                   color: Colors.white,
@@ -117,7 +117,7 @@ class Place extends StatelessWidget {
                       children: [
                         Spacer(),
                         Text(
-                          '\$ 100.00',
+                          '100.00 VNĐ',
                           style: TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.w800,

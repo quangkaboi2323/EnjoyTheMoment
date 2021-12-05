@@ -57,7 +57,7 @@ class _MyHomePageState extends State<MyHomePage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Find the best tour',
+                'TÌm tuor tốt nhất cho bạn',
                 style: TextStyle(
                   fontSize: 30,
                   fontWeight: FontWeight.w700,
@@ -70,7 +70,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      'Places',
+                      'Những Địa điểm',
                       style: TextStyle(
                           color: BlackText,
                           fontSize: 20,
@@ -96,7 +96,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      'Popular tours',
+                      'Tour phổ biến',
                       style: TextStyle(
                           color: BlackText,
                           fontSize: 20,
@@ -104,7 +104,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                     TextButton(
                       child: Text(
-                        'View all',
+                        'Xem tất cả',
                         style: TextStyle(
                             color: GreenColor,
                             fontSize: 18,

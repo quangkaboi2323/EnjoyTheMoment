@@ -18,7 +18,7 @@ class DetailUser extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Spacer(),
-            Text('USER'),
+            Text('NGƯỜI DÙNG'),
             Spacer(),
           ],
         ),
@@ -96,7 +96,7 @@ class DetailUser extends StatelessWidget {
                         color: BlueColor,
                         borderRadius: BorderRadius.all(Radius.circular(50))),
                     child: Text(
-                      'Tour has gone',
+                      'Tour đã đi',
                       style: TextStyle(fontSize: 20, color: Colors.white),
                     ),
                   )),
