@@ -1,5 +1,3 @@
-import 'package:ejm/share/bottom_share.dart';
-import 'package:ejm/share/bottom_status.dart';
 import 'package:ejm/share/share.dart';
 import 'package:ejm/views/checkout/checkout.dart';
 import 'package:ejm/views/home/places.dart';
@@ -327,7 +325,6 @@ class _DetailTourState extends State<DetailTour> {
           ],
         ),
       ),
-      bottomNavigationBar: Bottom(BottomState.none, context),
     );
   }
 }

@@ -1,6 +1,5 @@
-import 'package:ejm/share/bottom_share.dart';
-import 'package:ejm/share/bottom_status.dart';
 import 'package:ejm/share/share.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class Tours extends StatefulWidget {
@@ -13,6 +12,31 @@ class Tours extends StatefulWidget {
 class _ToursState extends State<Tours> {
   Icon customIcon = const Icon(Icons.search);
   Widget customSearchBar = const Text('Danh sách tour');
+
+  List tours = List.generate(10, (index) => "${index}");
+  ScrollController _scrollController = ScrollController();
+  int _currentMax = 10;
+
+  @override
+  void initState() {
+    super.initState();
+    // List places = List.generate(10, (index) => "${index}");
+    _scrollController.addListener(() {
+      if (_scrollController.position.pixels ==
+          _scrollController.position.maxScrollExtent) {
+        _getMoreTours();
+      }
+    });
+  }
+
+  _getMoreTours() {
+    for (int i = _currentMax; i < _currentMax + 10; i++) {
+      tours.add("${i + 1}");
+    }
+    _currentMax = _currentMax + 10;
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -65,14 +89,17 @@ class _ToursState extends State<Tours> {
       body: Container(
         padding: EdgeInsets.only(left: 4, right: 4),
         child: ListView.builder(
-          itemCount: 20,
+          controller: _scrollController,
+          itemCount: tours.length + 1,
           shrinkWrap: true,
           itemBuilder: (context, index) {
+            if (index == tours.length) {
+              return CupertinoActivityIndicator();
+            }
             return _Element(context);
           },
         ),
       ),
-      bottomNavigationBar: Bottom(BottomState.none, context),
     );
   }
 }

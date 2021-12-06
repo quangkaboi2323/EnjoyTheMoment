@@ -1,9 +1,10 @@
-import 'package:ejm/share/bottom_share.dart';
-import 'package:ejm/share/bottom_status.dart';
 import 'package:ejm/share/share.dart';
+import 'package:ejm/views/detail_tour/detail.tour.dart';
 import 'package:ejm/views/detail_user/detail.user.dart';
+import 'package:ejm/views/favorite/favorite.dart';
 import 'package:ejm/views/home/places.dart';
 import 'package:ejm/views/home/popular.dart';
+import 'package:ejm/views/search/search.dart';
 import 'package:ejm/views/tour/tous.dart';
 import 'package:flutter/material.dart';
 
@@ -15,6 +16,96 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+
+  int currentTab = 0;
+  final List<Widget> screens = [
+    Home(),
+    Favorite(),
+    Search(),
+    DetailTour()
+  ];
+  final PageStorageBucket bucket = PageStorageBucket();
+  Widget currentScreen = Home();
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: PageStorage(
+        child: currentScreen,
+        bucket: bucket,
+      ),
+      bottomNavigationBar: Container(
+        decoration: BoxDecoration(
+          color: Colors.white,
+          boxShadow: [
+            BoxShadow(
+              color: BlackText.withOpacity(0.1),
+              spreadRadius: 0,
+              blurRadius: 5,
+              offset: Offset(0, -4), // changes position of shadow
+            ),
+          ],
+        ),
+        child: Padding(
+          padding: const EdgeInsets.only(top: 10, bottom: 10, left: 20, right: 20),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              IconButton(
+                icon: Icon(
+                  Icons.home,
+                  size: 35,
+                  color: currentTab == 0 ? GreenColor :  BlackText,
+                ),
+                onPressed: () {
+                  setState(() {
+                    currentTab = 0;
+                    currentScreen = Home();
+                  });
+                },
+              ),
+              IconButton(
+                icon: Icon(
+                  Icons.favorite,
+                  size: 35,
+                  color: currentTab == 1 ? GreenColor :  BlackText,
+                ),
+                onPressed: () {
+                  setState(() {
+                    currentTab = 1;
+                    currentScreen = Favorite();
+                  });
+                },
+              ),
+              IconButton(
+                icon: Icon(
+                  Icons.search,
+                  size: 35,
+                  color: currentTab == 2 ? GreenColor :  BlackText,
+                ),
+                onPressed: () {
+                  setState(() {
+                    currentTab = 2;
+                    currentScreen = Search();
+                  });
+                },
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class Home extends StatefulWidget {
+  const Home({Key? key}) : super(key: key);
+
+  @override
+  _HomeState createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -124,7 +215,9 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ),
       ),
-      bottomNavigationBar: Bottom(BottomState.home, context),
     );
   }
 }
+
+
+

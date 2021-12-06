@@ -1,5 +1,3 @@
-import 'package:ejm/share/bottom_share.dart';
-import 'package:ejm/share/bottom_status.dart';
 import 'package:ejm/share/share.dart';
 import 'package:flutter/material.dart';
 
@@ -69,7 +67,6 @@ class _SearchState extends State<Search> {
           return _Card();
         },),
       ),
-      bottomNavigationBar: Bottom(BottomState.search, context),
     );
   }
 }
