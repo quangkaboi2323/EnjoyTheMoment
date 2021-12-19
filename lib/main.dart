@@ -15,10 +15,10 @@ class MyApp extends StatelessWidget {
       title: 'EJM App',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity
       ),
-      home: Login(),
+      home: MyHomePage(),
     );
   }
 }

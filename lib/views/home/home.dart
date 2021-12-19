@@ -1,4 +1,5 @@
 import 'package:ejm/share/share.dart';
+import 'package:ejm/share/valid.dart';
 import 'package:ejm/views/detail_tour/detail.tour.dart';
 import 'package:ejm/views/detail_user/detail.user.dart';
 import 'package:ejm/views/favorite/favorite.dart';
@@ -6,6 +7,7 @@ import 'package:ejm/views/home/places.dart';
 import 'package:ejm/views/home/popular.dart';
 import 'package:ejm/views/search/search.dart';
 import 'package:ejm/views/tour/tous.dart';
+import 'package:ejm/views/user_behavior/login.dart';
 import 'package:flutter/material.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -116,11 +118,21 @@ class _HomeState extends State<Home> {
           child: IconButton(
             icon: Icon(Icons.person),
             color: GreenColor,
-            onPressed: () => Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => DetailUser(),
-                )),
+            onPressed: ()  {
+              if(EMAIL == null){
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Login(),
+                    ));
+              } else {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => DetailUser(),
+                    ));
+              }
+            },
           ),
         ),
         backgroundColor: Colors.white,

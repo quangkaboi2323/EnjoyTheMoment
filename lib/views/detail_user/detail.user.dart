@@ -1,4 +1,5 @@
 import 'package:ejm/share/share.dart';
+import 'package:ejm/share/valid.dart';
 import 'package:ejm/views/has_gone/tour_has_gone.dart';
 import 'package:ejm/views/user_behavior/change_pass.dart';
 import 'package:ejm/views/user_behavior/login.dart';
@@ -18,7 +19,7 @@ class DetailUser extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Spacer(),
-            Text('NGƯỜI DÙNG'),
+            Text(USERNAME != null ? USERNAME : 'NGƯỜI DÙNG'),
             Spacer(),
           ],
         ),
@@ -77,7 +78,7 @@ class DetailUser extends StatelessWidget {
               padding: EdgeInsets.fromLTRB(30, 0, 30, 0),
               decoration: BoxDecoration(),
               child: Text(
-                'quang.nhv.60cntt@ntu.edu.vn',
+                EMAIL != null ? EMAIL : 'NGƯỜI DÙNG',
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
               ),
             ),
@@ -121,11 +122,11 @@ class DetailUser extends StatelessWidget {
             ),
             Container(
               child: TextButton(
-                  onPressed: () => Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => Login(),
-                      )),
+                  onPressed: () {
+                    USERNAME = null;
+                    EMAIL = null;
+                    Navigator.pop(context);
+                  },
                   child: Container(
                     padding: EdgeInsets.fromLTRB(100, 10, 100, 10),
                     decoration: BoxDecoration(
