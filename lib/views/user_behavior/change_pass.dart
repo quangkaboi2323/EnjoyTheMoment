@@ -178,7 +178,7 @@ class _ChangePassState extends State<ChangePass> {
   }
   Future changePass() async {
     try {
-      var response = await http.post(Uri.parse('http://10.0.2.2/api/auth/changepassword.php'), body: {
+      var response = await http.post(Uri.parse('https://quanlitourejm.000webhostapp.com/api/auth/changepassword.php'), body: {
         "email": EMAIL,
         "oldPass": oldPassController.text,
         "newPass": newPassController.text,

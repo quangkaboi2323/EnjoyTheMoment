@@ -4,6 +4,7 @@ import 'package:ejm/model/tours.dart';
 import 'package:ejm/model/vehicle.dart';
 import 'package:ejm/network/network_vehicle.dart';
 import 'package:ejm/share/share.dart';
+import 'package:ejm/share/url_api.dart';
 import 'package:ejm/share/valid.dart';
 import 'package:ejm/views/checkout/checkout.dart';
 import 'package:ejm/views/home/places.dart';
@@ -40,7 +41,7 @@ class _DetailTourState extends State<DetailTour> {
 
   void getFavorite() async {
     final response = await http.get(Uri.parse(
-        'http://10.0.2.2/api/favorite/get.php?username=' +
+        'https://quanlitourejm.000webhostapp.com/api/favorite/get.php?username=' +
             EMAIL +
             '&matour=' +
             widget.tour.matour));
@@ -103,7 +104,7 @@ class _DetailTourState extends State<DetailTour> {
                 children: [
                   Image.network(
                     widget.tour.hinhanh != ''
-                        ? widget.tour.hinhanh
+                        ? IMG_DIR + widget.tour.hinhanh
                         : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRd8nqr6w_qWXwZz5tQlz4Wf2qyYdBYRLHXYQ&usqp=CAU',
                     height: 500,
                     width: MediaQuery.of(context).size.width,

@@ -1,5 +1,6 @@
 import 'package:ejm/model/places.dart';
 import 'package:ejm/network/network_place.dart';
+import 'package:ejm/share/url_api.dart';
 import 'package:ejm/views/search/search.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -59,7 +60,7 @@ class _PlacesState extends State<Places> {
                     borderRadius: BorderRadius.circular(16),
                     child: Image.network(
                       _places[index].hinhanh != null
-                          ? _places[index].hinhanh
+                          ? IMG_DIR + _places[index].hinhanh
                           : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRd8nqr6w_qWXwZz5tQlz4Wf2qyYdBYRLHXYQ&usqp=CAU',
                       height: 230,
                       width: 160,
@@ -131,7 +132,7 @@ class _PlacesState extends State<Places> {
                                                   child: Image.network(
                                                     _places[index].hinhanh !=
                                                             null
-                                                        ? _places[index].hinhanh
+                                                        ? IMG_DIR + _places[index].hinhanh
                                                         : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRd8nqr6w_qWXwZz5tQlz4Wf2qyYdBYRLHXYQ&usqp=CAU',
                                                     width:
                                                         MediaQuery.of(context)

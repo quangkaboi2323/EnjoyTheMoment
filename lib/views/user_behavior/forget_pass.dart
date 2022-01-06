@@ -222,7 +222,7 @@ class _ForgetPassState extends State<ForgetPass> {
 
   Future sendEmail() async {
     try {
-      var response = await http.post(Uri.parse('http://10.0.2.2/api/auth/forgot.php'), body: {
+      var response = await http.post(Uri.parse('https://quanlitourejm.000webhostapp.com/api/auth/forgot.php'), body: {
         "email": emailController.text,
       });
 
@@ -241,7 +241,7 @@ class _ForgetPassState extends State<ForgetPass> {
   }
   Future getNewPass() async {
     try {
-      var response = await http.post(Uri.parse('http://10.0.2.2/api/auth/get_new_pass.php'), body: {
+      var response = await http.post(Uri.parse('https://quanlitourejm.000webhostapp.com/api/auth/get_new_pass.php'), body: {
         "email": emailController.text,
       });
 

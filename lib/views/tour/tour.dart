@@ -1,3 +1,4 @@
+import 'package:ejm/share/url_api.dart';
 import 'package:ejm/views/detail_tour/detail.tour.dart';
 import 'package:intl/intl.dart';
 import 'package:ejm/model/tours.dart';
@@ -97,7 +98,7 @@ class _ToursState extends State<Tours> {
                       ),
                       child: Image.network(
                         _toursDisplay[index].hinhanh != ''
-                            ? _toursDisplay[index].hinhanh
+                            ? IMG_DIR + _toursDisplay[index].hinhanh
                             : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRd8nqr6w_qWXwZz5tQlz4Wf2qyYdBYRLHXYQ&usqp=CAU',
                         height: 70,
                         width: MediaQuery.of(context).size.width,

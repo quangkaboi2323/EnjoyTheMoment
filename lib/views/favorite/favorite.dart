@@ -86,7 +86,7 @@ class _FavoriteState extends State<Favorite> {
                             bottomLeft: Radius.circular(10)),
                         child: Image.network(
                           _favoriteTour[index].hinhanh != ''
-                              ? _favoriteTour[index].hinhanh
+                              ? IMG_DIR + _favoriteTour[index].hinhanh
                               : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRd8nqr6w_qWXwZz5tQlz4Wf2qyYdBYRLHXYQ&usqp=CAU',
                           height: 100,
                           width: 110,
@@ -149,7 +149,7 @@ class _FavoriteState extends State<Favorite> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
-                                '4.3',
+                                _favoriteTour[index].danhgia,
                                 style: TextStyle(
                                     fontWeight: FontWeight.w700,
                                     color: Colors.white,

@@ -1,6 +1,7 @@
 import 'package:ejm/model/tours.dart';
 import 'package:ejm/network/network_tour.dart';
 import 'package:ejm/share/share.dart';
+import 'package:ejm/share/url_api.dart';
 import 'package:ejm/views/detail_tour/detail.tour.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -57,8 +58,9 @@ class _PopularTourState extends State<PopularTour> {
                           bottomLeft: Radius.circular(20)),
                       child: Image.network(
                         _popularTour[index].hinhanh != ''
-                            ? _popularTour[index].hinhanh
-                            : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRd8nqr6w_qWXwZz5tQlz4Wf2qyYdBYRLHXYQ&usqp=CAU',
+                            ? IMG_DIR + _popularTour[index].hinhanh
+                            :
+                        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRd8nqr6w_qWXwZz5tQlz4Wf2qyYdBYRLHXYQ&usqp=CAU',
                         height: 100,
                         width: 110,
                         fit: BoxFit.cover,

@@ -154,7 +154,7 @@ class _HomeState extends State<Home> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'TÌm tuor tốt nhất cho bạn',
+                'Tìm tour tốt nhất cho bạn',
                 style: TextStyle(
                   fontSize: 30,
                   fontWeight: FontWeight.w700,
@@ -167,7 +167,7 @@ class _HomeState extends State<Home> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      'Những Địa điểm',
+                      'Những Địa Điểm',
                       style: TextStyle(
                           color: BlackText,
                           fontSize: 20,

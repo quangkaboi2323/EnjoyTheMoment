@@ -137,7 +137,7 @@ class _CheckoutState extends State<Checkout> {
                                 bottomLeft: Radius.circular(20)),
                             child: Image.network(
                               widget.tour.hinhanh != ''
-                                  ? widget.tour.hinhanh
+                                  ? IMG_DIR + widget.tour.hinhanh
                                   : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRd8nqr6w_qWXwZz5tQlz4Wf2qyYdBYRLHXYQ&usqp=CAU',
                               height: 100,
                               width: 110,
@@ -201,7 +201,8 @@ class _CheckoutState extends State<Checkout> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Text(
-                                    '4.3',
+                                    double.parse(widget.tour.danhgia)
+                                        .toString(),
                                     style: TextStyle(
                                         fontWeight: FontWeight.w700,
                                         color: Colors.white,
