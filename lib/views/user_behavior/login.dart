@@ -10,7 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 class Login extends StatefulWidget {
-  const Login({Key? key}) : super(key: key);
+  const Login({Key key}) : super(key: key);
 
   @override
   _LoginState createState() => _LoginState();
@@ -71,7 +71,7 @@ class _LoginState extends State<Login> {
                                   borderSide: BorderSide(color: GreenColor))),
                           style: TextStyle(color: GreenColor, fontSize: 20),
                           validator: (value) {
-                            return isValid(value!, patternEmail)
+                            return isValid(value, patternEmail)
                                 ? null
                                 : "Nhập vào đúng địa chỉ email";
                           },
@@ -90,7 +90,7 @@ class _LoginState extends State<Login> {
                                     borderSide: BorderSide(color: GreenColor))),
                             style: TextStyle(color: GreenColor, fontSize: 20),
                             validator: (value) {
-                              return isValid(value!, patternPass)
+                              return isValid(value, patternPass)
                                   ? null
                                   : "Nhập vào đúng mật khẩu";
                             },
@@ -152,7 +152,7 @@ class _LoginState extends State<Login> {
                       ),
                       TextButton(
                           onPressed: () {
-                            if (formKey.currentState!.validate()) {
+                            if (formKey.currentState.validate()) {
                               login();
                             }
                           },
@@ -210,12 +210,7 @@ class _LoginState extends State<Login> {
           USERNAME = data['result']['tennguoidung'];
           EMAIL = data['result']['madangnhap'];
 
-          if (USERNAME != null && EMAIL != null)
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => MyHomePage(),
-                ));
+          return Navigator.push(context, MaterialPageRoute(builder: (context) => MyHomePage(),));
         }
         if (data['message'] == 'password error') {
           ScaffoldMessenger.of(context).showSnackBar(SnackBar(

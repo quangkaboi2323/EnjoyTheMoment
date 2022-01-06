@@ -1,83 +1,149 @@
+import 'package:ejm/model/tours.dart';
+import 'package:ejm/network/network_tour.dart';
 import 'package:ejm/share/share.dart';
+import 'package:ejm/share/url_api.dart';
+import 'package:ejm/views/detail_tour/detail.tour.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class Search extends StatefulWidget {
-  const Search({Key? key}) : super(key: key);
+  final String keyWord;
+  const Search({Key key, this.keyWord}) : super(key: key);
 
   @override
   _SearchState createState() => _SearchState();
 }
 
 class _SearchState extends State<Search> {
-  Icon customIcon = const Icon(Icons.search);
-  Widget customSearchBar = const Text('Tìm kiếm');
+  var searchController = TextEditingController();
+  List<Tour> _list = List<Tour>();
+
+  @override
+  void initState() {
+    super.initState();
+    setState(() {
+      fetchTourUrl(searchAPI + widget.keyWord).then((value) {
+        setState(() {
+          _list = value;
+        });
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: GreenColor,
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back),
-          onPressed: () => Navigator.pop(context),
-        ),
-        title: customSearchBar,
-        automaticallyImplyLeading: false,
-        actions: [
-          IconButton(
-            onPressed: () {
-              setState(() {
-                if (customIcon.icon == Icons.search) {
-                  customIcon = const Icon(Icons.cancel);
-                  customSearchBar = const ListTile(
-                    leading: Icon(
-                      Icons.search,
-                      color: Colors.white,
-                      size: 28,
-                    ),
-                    title: TextField(
-                      decoration: InputDecoration(
-                        hintText: 'Nhập vào từ khóa...',
-                        hintStyle: TextStyle(
-                          color: Colors.white,
-                          fontSize: 18,
-                          fontStyle: FontStyle.italic,
-                        ),
-                        border: InputBorder.none,
-                      ),
-                      style: TextStyle(
-                        color: Colors.white,
-                      ),
-                    ),
-                  );
-                } else {
-                  customIcon = const Icon(Icons.search);
-                  customSearchBar = const Text('Tìm kiếm');
-                }
-              });
-            },
-            icon: customIcon,
-          )
-        ],
         centerTitle: true,
+        title: Text('Tìm kiếm'),
+        backgroundColor: GreenColor,
       ),
       body: Container(
         child: ListView.builder(
-          itemCount: 20,
+          itemCount: _list.length + 1,
           itemBuilder: (context, index) {
-          return _Card();
-        },),
+            return index == 0
+                ? Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Row(
+                      children: [
+                        Container(
+                            width: MediaQuery.of(context).size.width * 0.8,
+                            child: TextFormField(
+                              controller: searchController,
+                              decoration: InputDecoration(
+                                hintText: 'Nhập vào từ khóa...',
+                              ),
+                            )),
+                        Spacer(),
+                        IconButton(
+                          onPressed: () {
+                            setState(() {
+                              fetchTourUrl(searchAPI + searchController.text).then((value) {
+                                setState(() {
+                                  _list = value;
+                                });
+                              });
+                            });
+                          },
+                          icon: Icon(
+                            Icons.search,
+                            size: 30,
+                            color: GreenColor,
+                          ),
+                        )
+                      ],
+                    ),
+                  )
+                : Card(
+                    child: MaterialButton(
+                      onPressed: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => DetailTour(
+                              tour: _list[index - 1],
+                            ),
+                          )),
+                      child: Padding(
+                        padding: const EdgeInsets.fromLTRB(8, 15, 8, 10),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              _list[index - 1].tentour,
+                              style: TextStyle(
+                                  fontSize: 22,
+                                  fontWeight: FontWeight.w500,
+                                  color: Colors.black87),
+                            ),
+                            SizedBox(
+                              height: 4,
+                            ),
+                            Text(
+                              _list[index - 1].mota,
+                              style:
+                                  TextStyle(color: Colors.grey, fontSize: 17),
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Row(
+                              children: [
+                                Spacer(),
+                                Text(
+                                  DateFormat('dd/MM/yyyy').format(
+                                          DateTime.parse(
+                                              _list[index - 1].ngaybd)) +
+                                      " - " +
+                                      DateFormat('dd/MM/yyyy').format(
+                                          DateTime.parse(
+                                              _list[index - 1].ngaykt)),
+                                  style: TextStyle(fontSize: 18),
+                                ),
+                                Spacer(),
+                                Text(
+                                  NumberFormat.currency(
+                                          locale: 'vi', symbol: 'VND')
+                                      .format(
+                                          int.parse(_list[index - 1].giatour)),
+                                  style: TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.w700,
+                                      color: GreenColor),
+                                ),
+                              ],
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                  );
+            ;
+          },
+        ),
       ),
     );
   }
-}
 
-_Card() {
-  return Card(
-    child: Padding(
-      padding: const EdgeInsets.all(10.0),
-      child: Text('Tiêu đề chứa từ khóa ....', style: TextStyle(
-        fontSize: 20, fontWeight: FontWeight.w500
-      ),),
-    ),
-  );
+
 }

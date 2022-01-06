@@ -9,7 +9,7 @@ import 'package:http/http.dart' as http;
 import 'package:fluttertoast/fluttertoast.dart';
 
 class Register extends StatefulWidget {
-  const Register({Key? key}) : super(key: key);
+  const Register({Key key}) : super(key: key);
 
   @override
   _RegisterState createState() => _RegisterState();
@@ -124,7 +124,7 @@ class _RegisterState extends State<Register> {
                                   borderSide: BorderSide(color: GreenColor))),
                           style: TextStyle(color: GreenColor, fontSize: 20),
                           validator: (value) {
-                            return isValid(value!, patternEmail)
+                            return isValid(value, patternEmail)
                                 ? null
                                 : "Nhập vào đúng địa chỉ email";
                           },
@@ -141,7 +141,7 @@ class _RegisterState extends State<Register> {
                                   borderSide: BorderSide(color: GreenColor))),
                           style: TextStyle(color: GreenColor, fontSize: 20),
                           validator: (value) {
-                            return isValid(value!, patternName)
+                            return isValid(value, patternName)
                                 ? null
                                 : "Nhập vào đúng tên";
                           },
@@ -160,7 +160,7 @@ class _RegisterState extends State<Register> {
                                     borderSide: BorderSide(color: GreenColor))),
                             style: TextStyle(color: GreenColor, fontSize: 20),
                             validator: (value) {
-                              return isValid(value!, patternPass)
+                              return isValid(value, patternPass)
                                   ? null
                                   : "Nhập vào đúng mật khẩu";
                             },
@@ -199,7 +199,7 @@ class _RegisterState extends State<Register> {
                                     borderSide: BorderSide(color: GreenColor))),
                             style: TextStyle(color: GreenColor, fontSize: 20),
                             validator: (value) {
-                              return isValid(value!, patternPass)
+                              return isValid(value, patternPass)
                                   ? null
                                   : "Nhập vào đúng mật khẩu";
                             },
@@ -252,7 +252,7 @@ class _RegisterState extends State<Register> {
                             print("name: " + nameController.text);
                             print("pass1: " + passController.text);
                             print("pass2: " + comfirmPassController.text);
-                            if (formKey.currentState!.validate()) {
+                            if (formKey.currentState.validate()) {
                               register();
                             }
                           },

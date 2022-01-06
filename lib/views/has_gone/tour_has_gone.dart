@@ -4,7 +4,7 @@ import 'package:ejm/views/has_gone/tour_rated.dart';
 import 'package:flutter/material.dart';
 
 class HasGone extends StatefulWidget {
-  const HasGone({Key? key}) : super(key: key);
+  const HasGone({Key key}) : super(key: key);
 
   @override
   _HasGoneState createState() => _HasGoneState();

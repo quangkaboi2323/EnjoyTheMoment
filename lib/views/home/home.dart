@@ -6,12 +6,12 @@ import 'package:ejm/views/favorite/favorite.dart';
 import 'package:ejm/views/home/places.dart';
 import 'package:ejm/views/home/popular.dart';
 import 'package:ejm/views/search/search.dart';
-import 'package:ejm/views/tour/tous.dart';
+import 'package:ejm/views/tour/tour.dart';
 import 'package:ejm/views/user_behavior/login.dart';
 import 'package:flutter/material.dart';
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key}) : super(key: key);
+  const MyHomePage({Key key}) : super(key: key);
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
@@ -23,8 +23,8 @@ class _MyHomePageState extends State<MyHomePage> {
   final List<Widget> screens = [
     Home(),
     Favorite(),
-    Search(),
-    DetailTour()
+    Search(keyWord: '',),
+    // DetailTour()
   ];
   final PageStorageBucket bucket = PageStorageBucket();
   Widget currentScreen = Home();
@@ -73,10 +73,14 @@ class _MyHomePageState extends State<MyHomePage> {
                   color: currentTab == 1 ? GreenColor :  BlackText,
                 ),
                 onPressed: () {
-                  setState(() {
-                    currentTab = 1;
-                    currentScreen = Favorite();
-                  });
+                  if(EMAIL != null) {
+                    setState(() {
+                      currentTab = 1;
+                      currentScreen = Favorite();
+                    });
+                  } else {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => Login(),));
+                  }
                 },
               ),
               IconButton(
@@ -88,7 +92,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 onPressed: () {
                   setState(() {
                     currentTab = 2;
-                    currentScreen = Search();
+                    currentScreen = Search(keyWord: '',);
                   });
                 },
               ),
@@ -101,7 +105,7 @@ class _MyHomePageState extends State<MyHomePage> {
 }
 
 class Home extends StatefulWidget {
-  const Home({Key? key}) : super(key: key);
+  const Home({Key key}) : super(key: key);
 
   @override
   _HomeState createState() => _HomeState();
@@ -136,21 +140,11 @@ class _HomeState extends State<Home> {
           ),
         ),
         backgroundColor: Colors.white,
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              'EnjoyTheMoment',
-              style: TextStyle(color: BlackText, fontWeight: FontWeight.w600),
-            ),
-          ],
+        centerTitle: true,
+        title: Text(
+          'EnjoyTheMoment',
+          style: TextStyle(color: BlackText, fontWeight: FontWeight.w600),
         ),
-        actions: [
-          Icon(
-            Icons.ac_unit,
-            color: Colors.white,
-          )
-        ],
         elevation: 0.0,
       ),
       body: SingleChildScrollView(
@@ -192,7 +186,7 @@ class _HomeState extends State<Home> {
                   ],
                 ),
               ),
-              Places(),
+              Places(matour:  '',),
               Padding(
                 padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
                 child: Row(
@@ -218,10 +212,7 @@ class _HomeState extends State<Home> {
                   ],
                 ),
               ),
-              PopularTour(),
-              PopularTour(),
-              PopularTour(),
-              PopularTour(),
+
               PopularTour(),
             ],
           ),

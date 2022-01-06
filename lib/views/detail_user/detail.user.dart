@@ -6,7 +6,7 @@ import 'package:ejm/views/user_behavior/login.dart';
 import 'package:flutter/material.dart';
 
 class DetailUser extends StatelessWidget {
-  const DetailUser({Key? key}) : super(key: key);
+  const DetailUser({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
