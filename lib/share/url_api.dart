@@ -5,7 +5,8 @@ const tourPopularApi = "https://quanlitourejm.000webhostapp.com/api/tours/popula
 const placeAPi = "https://quanlitourejm.000webhostapp.com/api/places/places.php";
 const vehicleAPi = "https://quanlitourejm.000webhostapp.com/api/vehicle/vehicle.php?id=";
 const favoriteTour = "https://quanlitourejm.000webhostapp.com/api/favorite/favorite.php?email=";
-const hasRatedTour = "https://quanlitourejm.000webhostapp.com/api/hasgone/notrated.php?username=";
+const notRatedTour = "https://quanlitourejm.000webhostapp.com/api/hasgone/notrated.php?username=";
+const hasRatedTour = "https://quanlitourejm.000webhostapp.com/api/hasgone/hasrated.php?username=";
 const checkoutAPI = "https://quanlitourejm.000webhostapp.com/api/checkout/checkout.php";
 const searchAPI = "https://quanlitourejm.000webhostapp.com/api/search/search.php?keyword=";
 

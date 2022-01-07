@@ -11,8 +11,8 @@ List<Ticket> parseTicket(String responseBody) {
   return tickets;
 }
 
-Future<List<Ticket>> fetchTicket(String username) async {
-  final response = await http.get(Uri.parse('http://10.0.2.2/api/hasgone/notrated.php?username=' + username));
+Future<List<Ticket>> fetchTicket(String url) async {
+  final response = await http.get(Uri.parse(url));
   if (response.statusCode == 200) {
     return compute(parseTicket, response.body);
   } else {

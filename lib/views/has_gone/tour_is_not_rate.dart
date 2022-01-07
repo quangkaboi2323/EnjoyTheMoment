@@ -3,8 +3,10 @@ import 'dart:convert';
 import 'package:ejm/model/ticket.dart';
 import 'package:ejm/network/network_ticket.dart';
 import 'package:ejm/share/share.dart';
+import 'package:ejm/share/url_api.dart';
 import 'package:ejm/share/valid.dart';
 import 'package:ejm/views/has_gone/tour_has_gone.dart';
+import 'package:ejm/views/home/home.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:intl/intl.dart';
@@ -24,7 +26,7 @@ class _TourIsNotRateState extends State<TourIsNotRate> {
   void initState() {
     super.initState();
     if (EMAIL != null) {
-      fetchTicket(EMAIL).then((dataFromServer) {
+      fetchTicket(notRatedTour + EMAIL).then((dataFromServer) {
         setState(() {
           _tickets = dataFromServer;
         });
@@ -43,7 +45,6 @@ class _TourIsNotRateState extends State<TourIsNotRate> {
           return StateTicket(
             ticket: _tickets[index],
           );
-          // return Text('123');
         },
       ),
     );
@@ -89,7 +90,7 @@ class _StateTicketState extends State<StateTicket> {
                     ),
                     child: Image.network(
                       widget.ticket.hinhanh != ''
-                          ? widget.ticket.hinhanh
+                          ? IMG_DIR + widget.ticket.hinhanh
                           : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRd8nqr6w_qWXwZz5tQlz4Wf2qyYdBYRLHXYQ&usqp=CAU',
                       height: 100,
                       width: 110,
@@ -158,7 +159,9 @@ class _StateTicketState extends State<StateTicket> {
                 ),
                 TextButton(
                     onPressed: () {
-                      print(_rating);
+                      sendRating();
+                      Navigator.pop(context);
+                      return Navigator.push(context, MaterialPageRoute(builder: (context) => HasGone()));
                     },
                     child: Text(
                       'Gửi',
@@ -176,7 +179,7 @@ class _StateTicketState extends State<StateTicket> {
   Future sendRating() async {
     try {
       var response = await http.post(
-          Uri.parse('http://10.0.2.2/api/hasgone/rate.php'),
+          Uri.parse('https://quanlitourejm.000webhostapp.com/api/hasgone/rate.php'),
           body: {"sove": widget.ticket.sove, "rating": _rating.toString()});
 
       if (response.statusCode == 200) {
@@ -192,12 +195,6 @@ class _StateTicketState extends State<StateTicket> {
             ),
             backgroundColor: Colors.green,
           ));
-
-          return Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => HasGone(),
-              ));
         }
       } else {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(

@@ -94,7 +94,7 @@ class _TourRatedState extends State<TourRated> {
                                   borderRadius:
                                       BorderRadius.all(Radius.circular(30)),
                                   child: Image.network(
-                                    _tourHasGone[index].hinhanh == ''
+                                    _tourHasGone[index].hinhanh != ''
                                         ? IMG_DIR + _tourHasGone[index].hinhanh
                                         : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRd8nqr6w_qWXwZz5tQlz4Wf2qyYdBYRLHXYQ&usqp=CAU',
                                     height: MediaQuery.of(context).size.height,

@@ -149,7 +149,8 @@ class _FavoriteState extends State<Favorite> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
-                                _favoriteTour[index].danhgia,
+                                double.parse(_favoriteTour[index].danhgia)
+                                    .toString(),
                                 style: TextStyle(
                                     fontWeight: FontWeight.w700,
                                     color: Colors.white,

@@ -57,7 +57,7 @@ class _DetailTourState extends State<DetailTour> {
 
   void postFavorite() async {
     final response = await http.post(
-        Uri.parse('http://10.0.2.2/api/favorite/post.php'),
+        Uri.parse('https://quanlitourejm.000webhostapp.com/api/favorite/post.php'),
         body: {'username': EMAIL, 'matour': widget.tour.matour});
     if (response.statusCode == 200) {
       var result = json.decode(response.body);
@@ -195,7 +195,8 @@ class _DetailTourState extends State<DetailTour> {
                             Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: Text(
-                                widget.tour.danhgia,
+                                double.parse(widget.tour.danhgia)
+                                    .toString(),
                                 style: TextStyle(
                                     fontSize: 30,
                                     fontWeight: FontWeight.w500,
